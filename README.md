@@ -5,11 +5,15 @@
 
 ---
 
+![Screenshot 2025-04-11 082636](https://github.com/user-attachments/assets/4e895930-cd46-4ce1-9df5-3849b21c77fa)
+
 ## 📌 Overview
 
 **SpoofShield** is a lightweight **Intrusion Detection System (IDS)** tailored for small networks and personal setups. It detects suspicious behavior like **ARP spoofing** and monitors your local network in real time. SpoofShield acts as your first line of defense against Man-in-the-Middle (MITM) attacks and helps you stay informed with detailed updates sent directly to **Discord**.
 
 ---
+
+
 
 ## 🎯 Key Features
 
