@@ -132,13 +132,3 @@ Built by **c1ph3r1337** 😎🔥
 Drop a star ⭐ if you find this helpful or want more open-source security tools!
 
 ---
-```
-
-Let me know if you want me to include:
-
-- A logo or badge section  
-- How to deploy on Linux/Mac  
-- Integration with databases for logging  
-- More IDS features like port scanning, DNS poisoning detection, etc.
-
-Happy to help you evolve this into a full-fledged monitoring suite if that’s the goal.
