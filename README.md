@@ -1,137 +1,144 @@
-# 🛡️ SpoofShield - ARP Spoofing Detection Tool
+# 🛡️ SpoofShield - Lightweight Intrusion Detection System (IDS)
 
-> Real-time ARP spoofing detection and network monitoring with Discord webhook alerts 🚨  
-> Built using **Python** for backend monitoring and **Node.js** for the user interface.
+> Real-time network monitoring and ARP spoofing detection with Discord alerts.  
+> Designed for proactive defense using Python + Node.js UI.
 
 ---
 
 ## 📌 Overview
 
-**SpoofShield** is a lightweight Intrusion Detection System (IDS) focused on identifying **ARP spoofing** attacks within a local network. It actively scans your network's ARP table, detects anomalies (like multiple IPs mapped to a single MAC address), and sends detailed alerts to a specified **Discord webhook**.
+**SpoofShield** is a lightweight **Intrusion Detection System (IDS)** tailored for small networks and personal setups. It detects suspicious behavior like **ARP spoofing** and monitors your local network in real time. SpoofShield acts as your first line of defense against Man-in-the-Middle (MITM) attacks and helps you stay informed with detailed updates sent directly to **Discord**.
 
 ---
 
-## 🚀 Features
+## 🎯 Key Features
 
-- 🔍 **Real-time ARP scanning**
-- 🚨 **Detects ARP spoofing / MITM attempts**
-- 📡 **Filters results by subnet (default: `172.20.10.*`)**
-- 📬 **Sends alerts and updates to a Discord webhook**
-- 🌐 **User interface built with Node.js**
+- 🛡️ **Lightweight IDS** focused on local network integrity
+- 🔍 **ARP table monitoring** for unusual activity
+- 🚨 **MITM / ARP spoofing detection**
+- 🖥️ **Web-based UI with Node.js**
+- 📬 **Discord webhook alerts and periodic updates**
+- 🧠 Designed for easy deployment in home labs or small office setups
 
 ---
 
-## 🛠️ Technologies Used
+## 🧰 Tech Stack
 
-| Component | Tech Stack |
-|----------|-------------|
-| Backend  | Python 3.x  |
-| Frontend | Node.js     |
+| Component   | Technology         |
+|------------|--------------------|
+| Backend     | Python 3.x         |
+| Frontend UI | Node.js / Express  |
 | Notifications | Discord Webhooks |
-| OS Compatibility | Windows (uses `arp -a` command) |
+| Platform Support | Windows (currently) |
 
 ---
 
-## ⚙️ Setup Instructions
+## ⚙️ Installation & Setup
 
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/spoofshield.git
 cd spoofshield
 ```
 
-### 2. Python Environment
+### 2. Python Setup
 
-Make sure you have **Python 3** installed.
-
-Install required libraries:
+Install dependencies:
 
 ```bash
 pip install requests
 ```
 
-### 3. Configure Webhook and Subnet
-
-Edit the following lines in the script:
+Update these values in `spoofshield.py`:
 
 ```python
 WEBHOOK_URL = "https://discord.com/api/webhooks/your-webhook-url"
-SUBNET_PREFIX = "172.20.10."  # Adjust to match your local network subnet
+SUBNET_PREFIX = "172.20.10."  # Adjust for your local subnet
 ```
 
-### 4. Start the Python Script
+### 3. Start the IDS Engine
 
 ```bash
 python spoofshield.py
 ```
 
-You’ll see a banner and then continuous monitoring with updates every minute.
+You’ll see a banner and log output showing scans every 60 seconds.
 
 ---
 
-## 🌐 Node.js UI (Optional)
+## 🌐 Node.js Frontend UI
 
-A web interface for visualizing alerts and network status.
+Optional web interface for visualizing alerts and connected devices.
 
-### 1. Install Dependencies
+### 1. Navigate to UI Directory
 
 ```bash
-cd spoofshield-ui  # Assuming UI is in a separate folder
+cd spoofshield-ui  # Adjust if the folder is named differently
 npm install
 ```
 
-### 2. Run the Server
+### 2. Start the Web Server
 
 ```bash
 npm start
 ```
 
-Visit `http://localhost:3000` to access the SpoofShield UI.
+Visit `http://localhost:3000` to interact with the SpoofShield dashboard.
 
 ---
 
-## 🧠 How It Works
+## 🔍 How It Works
 
-1. Runs `arp -a` command periodically to gather the ARP table.
-2. Parses entries filtering by a specific subnet.
-3. Detects **MAC address duplication** across multiple IPs.
-4. If spoofing is suspected:
-   - Sends a Discord alert with timestamp and full ARP table.
-5. If no issues:
-   - Sends a periodic status update.
+1. Runs periodic scans of the ARP table using `arp -a`
+2. Extracts and normalizes device IP and MAC info
+3. Detects if a **MAC address is shared by multiple IPs**
+4. Sends Discord alerts for:
+   - ARP spoofing attempts
+   - Clean status reports (optional)
+5. Frontend UI displays basic logs and scan history
 
 ---
 
-## 📸 Sample Output (Discord Alert)
+## 📡 Sample Alert
 
 ```
 🚨 ALERT: ARP SPOOFING DETECTED!
-Suspicious IPs sharing gateway MAC: 172.20.10.7, 172.20.10.9
+Suspicious IPs sharing gateway MAC: 172.20.10.4, 172.20.10.8
 Gateway IP: 172.20.10.1
-Timestamp: 2025-04-11 12:30:45
-
-ARP Table:
-IP Address      MAC Address           Type
---------------------------------------------------
-172.20.10.1     00-11-22-33-44-55     dynamic
-172.20.10.7     00-11-22-33-44-55     dynamic
-172.20.10.9     00-11-22-33-44-55     dynamic
+Timestamp: 2025-04-11 15:23:45
 ```
 
 ---
 
-## 📄 License
+## 🛡️ Why Use SpoofShield?
+
+✅ Quick setup  
+✅ Lightweight and low-resource  
+✅ Great for home networks and beginner infosec projects  
+✅ Extendable for more IDS capabilities
+
+---
+
+## 📜 License
 
 MIT License
 
 ---
 
-## 👨‍💻 Author
+## ✨ Credits
 
-Made with ❤️ by **c1ph3r1337**
+Built by **c1ph3r1337** 😎🔥  
+Drop a star ⭐ if you find this helpful or want more open-source security tools!
 
 ---
 ```
 
-Let me know if you'd like to include screenshots or want a `spoofshield-ui` template structure in the repo too!
+Let me know if you want me to include:
+
+- A logo or badge section  
+- How to deploy on Linux/Mac  
+- Integration with databases for logging  
+- More IDS features like port scanning, DNS poisoning detection, etc.
+
+Happy to help you evolve this into a full-fledged monitoring suite if that’s the goal.
