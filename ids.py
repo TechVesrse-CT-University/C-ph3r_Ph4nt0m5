@@ -17,7 +17,7 @@ _____/  .__/ \___/ \___/ _| _____/ _| |_|_|\___|_|\__,_|
     print("Made by c1ph3r1337 😎🔥\n")
 
 # Configuration
-WEBHOOK_URL = "https://discord.com/api/webhooks/1346845718274642001/owZkZfJ61QF5DZVfNqSm4oZqUqSCZIqRpKGO3zshYwKhr10F2rghcjbXFCVF_R734wRM"  # Replace with actual webhook URL
+WEBHOOK_URL = "discord_webhook_url"  # Replace with actual webhook URL
 SUBNET_PREFIX = "172.20.10."  # This filters for 192.168.130.0/24
 SCAN_INTERVAL = 60  # Scan interval in seconds
 
